@@ -1,5 +1,5 @@
-import type { Comment } from "../../types"
 import { FaRegUser } from "react-icons/fa";
+import type { Comment } from "../../types";
 
 
 interface prop{
