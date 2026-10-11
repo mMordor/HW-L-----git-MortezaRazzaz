@@ -45,11 +45,11 @@ function Cart() {
                     </span>
                   </div>
                   <div className="flex justify-baseline items-center gap-1">
-                     <button className="w-[15px] h-[15px] p-[1px] flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
+                     <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
                         -
                       </button>
                     <p>count</p>
-                      <button className="w-[15px] h-[15px] p-[1px] flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
+                      <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
                         +
                       </button>
                      
@@ -65,7 +65,7 @@ function Cart() {
             }
           </div>
         </div>
-        <div className="w-[39%] h-[400px] bg-white rounded-md shadow-2xl flex flex-col justify-center items-center-safe">
+        <div className="w-[39%] h-100 bg-white rounded-md shadow-2xl flex flex-col justify-center items-center-safe">
           <h2>
             Info's
           </h2>
