@@ -42,11 +42,19 @@ function Cart() {
                     </span>
                   </div>
                   <div className="flex justify-baseline items-center gap-1">
-                     <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
+                     <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer"
+                        onClick={()=>{
+                          cart.removeFromCart(p._id)
+                        }}
+                     >
                         -
                       </button>
                     <p>{p.count}</p>
-                      <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
+                      <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer"
+                        onClick={()=>{
+                          cart.increaseCount(p._id)
+                        }}
+                      >
                         +
                       </button>
                      
