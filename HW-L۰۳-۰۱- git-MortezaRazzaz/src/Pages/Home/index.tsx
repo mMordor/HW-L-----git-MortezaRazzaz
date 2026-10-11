@@ -84,7 +84,7 @@ function Home() {
             />
           </div>
 
-          <div className='h-[800px] flex flex-wrap justify-center m-4 overflow-auto'>
+          <div className='h-200 flex flex-wrap justify-center m-4 overflow-auto'>
             {filteredProducts.map((p)=>(
               <ProductCard product={p} key={p._id}/>
             ))}
