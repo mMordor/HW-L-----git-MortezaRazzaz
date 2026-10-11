@@ -27,6 +27,7 @@ function Cart() {
           </div>
           <div className="w-full flex flex-col overflow-auto p-1 h-150">
             {
+              cart.cart.length > 0 ? 
               cart.cart.map((p)=>(
                 <div className="w-full flex justify-between items-center rounded-md shadow bg-white my-2 px-2">
                   <div className="w-[30%] flex text-start gap-2">
@@ -44,7 +45,7 @@ function Cart() {
                      <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
                         -
                       </button>
-                    <p>count</p>
+                    <p>{p.count}</p>
                       <button className="w-3.75 h-3.75 p-px flex justify-center items-center bg-cyan-100 rounded cursor-pointer">
                         +
                       </button>
@@ -58,6 +59,10 @@ function Cart() {
                   </div>
                 </div>
               ))
+              :
+              <div>
+                Order List Is Empty
+              </div>
             }
           </div>
         </div>

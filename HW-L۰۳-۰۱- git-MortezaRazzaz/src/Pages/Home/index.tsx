@@ -7,9 +7,20 @@ import type { Product } from '../../types';
 
 
 function Home() {
-  const [isloading, setIsLoading] = useState<boolean>(true)
+  const [products, setProducts] = useState<Product[]>(() => {
+
+    const storedCart = localStorage.getItem("Products_List");
+    if (storedCart) {
+      const parsed = JSON.parse(storedCart);
+      return parsed.data;
+    }
+    
+    return []; 
+  })
+  
+
+  const [isloading, setIsLoading] = useState<boolean>(products.length === 0)
   const [isFetchedErr, setIsFetchedErr] = useState<boolean>(false)
-  const [products, setProducts] = useState<Product[]>([])
   const [searchQuery, setSearchQuery] = useState("");
   const [priceRange, setPriceRange] = useState<number[]>([0, 1500]);
   const [selected_categoriy, setSelectedCategoriy] = useState('All');
@@ -36,20 +47,24 @@ function Home() {
     return result
 
   }, [products, searchQuery, priceRange,selected_categoriy]);
-
+  
   useEffect(()=>{
-    fetch("https://fakestoreapi.noksha.dev/api/walmartproducts")
-    .then((res) => res.json())
-    .then((res) => {
-      setProducts(res.data || res)
-      setIsLoading(false)
-      setIsFetchedErr(false)
-    }).catch(err => {
-      console.log(err)
-      setIsLoading(false)
-      setIsFetchedErr(true)
-    })
+    if(products.length === 0){
+      fetch("https://fakestoreapi.noksha.dev/api/walmartproducts")
+      .then((res) => res.json())
+      .then((res) => {
+        setProducts(res.data || res)
+        localStorage.setItem("Products_List", JSON.stringify(res));
+        setIsLoading(false)
+        setIsFetchedErr(false)
+      }).catch(err => {
+        console.log(err)
+        setIsLoading(false)
+        setIsFetchedErr(true)
+      })
+    }
   },[])
+
   if(isloading){
     return(
       <div className='w-full h-screen flex justify-center items-center'>
