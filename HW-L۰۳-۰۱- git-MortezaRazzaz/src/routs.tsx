@@ -23,6 +23,7 @@ export  const routs = createBrowserRouter([
                 path:"/Cart",
                 element: <Cart/>
             }
+            
         ]
     }
 ])

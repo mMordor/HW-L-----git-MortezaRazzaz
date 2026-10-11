@@ -66,7 +66,7 @@ function Home() {
   }else{
     return (
         <>
-          <div className='sticky top-0 z-50 w-full h-12.5 flex justify-around items-center px-3 mt-5'>
+          <div className=' w-full h-12.5 flex justify-around items-center px-3 mt-5'>
             <SearchComponent onSearchChange={(query: string) => setSearchQuery(query)}/>
             <PriceFilterDropdown  
               priceRange={priceRange} 
@@ -84,7 +84,7 @@ function Home() {
             />
           </div>
 
-          <div className='flex flex-wrap justify-center m-4'>
+          <div className='h-[800px] flex flex-wrap justify-center m-4 overflow-auto'>
             {filteredProducts.map((p)=>(
               <ProductCard product={p} key={p._id}/>
             ))}
