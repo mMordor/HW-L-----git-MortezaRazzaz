@@ -29,12 +29,12 @@ function Cart() {
             </p>
             
           </div>
-          <div className="w-full flex flex-col overflow-auto p-1 h-[600px]">
+          <div className="w-full flex flex-col overflow-auto p-1 h-150">
             {
               product.map((p)=>(
                 <div className="w-full flex justify-between items-center rounded-md shadow bg-white my-2 px-2">
                   <div className="w-[30%] flex text-start gap-2">
-                    <img src={p.image} alt="" className="w-[60px] h-[60px] bg-cover rounded p-1"/>
+                    <img src={p.image} alt="" className="w-15 h-15 bg-cover rounded p-1"/>
                     <span className="w-full">
                       <p className="text-xl truncate">
                           {p.title}
