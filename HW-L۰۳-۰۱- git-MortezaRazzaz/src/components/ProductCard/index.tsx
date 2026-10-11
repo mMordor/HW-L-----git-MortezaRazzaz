@@ -2,12 +2,16 @@ import { BsCartPlus } from "react-icons/bs";
 import { CgDetailsMore } from "react-icons/cg";
 import { Link } from 'react-router-dom';
 import type { Product } from "../../types";
+import { useCart } from "../../Hooks/useCart";
 
 interface prop {
   product : Product
 }
 
 function ProductCard({product}:prop) {
+
+  const cart = useCart()
+
   return (
     <div className='relative min-w-62.5 w-62.5 h-112.5  rounded-md  m-1 shadow-2xl '>
  
@@ -46,12 +50,17 @@ function ProductCard({product}:prop) {
           </Link>
               
 
-            <div className="group relative w-[50%] h-full cursor-pointer overflow-hidden  flex justify-center items-center text-cyan-950 hover:text-white transition-all duration-300">
+            <button className="group relative w-[50%] h-full cursor-pointer overflow-hidden  flex justify-center items-center text-cyan-950 hover:text-white transition-all duration-300"
+               onClick={()=>{
+                  cart.addToCart(product)
+                }
+                }
+            >
               <div className="absolute inset-0 rounded-br-md transition-all duration-500 group-hover:bg-green-500"></div>
               <div className="relative z-10  transition-all duration-300">
                 <BsCartPlus size={20} />
               </div>
-            </div>
+            </button>
 
         </div>
     </div>

@@ -5,6 +5,7 @@ import { CiDiscount1 } from "react-icons/ci";
 import CommentCard from "../../components/CommentCard";
 import ProductCard from "../../components/ProductCard";
 import { tagBackground } from "../../utilitis";
+import { useCart } from "../../Hooks/useCart";
 
 
 
@@ -13,6 +14,7 @@ function Products() {
     const [fullList , setFullList] = useState<Product[]>([])
     const [comments , setComments] = useState<Comment[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(true)
+    const cart = useCart()
 
     useEffect(()=>{
         fetch("https://fakestoreapi.noksha.dev/api/walmartproducts")
@@ -80,9 +82,13 @@ function Products() {
                         <p><del>{selected.oldPrice}</del></p> 
                         <h3 className="text-3xl">{selected.price}$</h3>
                     </div>
-                    <div className="w-full bg-blue-400 p-1.5 rounded-md mt-3">
+                    <button className="cursor-pointer w-full text-white bg-blue-500 hover:bg-blue-400 transition p-1.5 rounded-md mt-3"
+                        onClick={()=>{
+                            cart.addToCart(selected)
+                        }}
+                    >
                         Add To Cart
-                    </div>
+                    </button>
                 </div>
 
             </div>

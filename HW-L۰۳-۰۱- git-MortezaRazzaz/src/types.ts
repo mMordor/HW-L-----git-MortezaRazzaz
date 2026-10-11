@@ -10,6 +10,16 @@ export interface Product {
     brand : string
 }
 
+
+export interface ProductsCart {
+    _id : number
+    title : string
+    price : number
+    count : number
+    des : string
+    image : string
+}
+
 export interface Comment{
     postId: number
     id: number

@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react"
-import type { Product } from "../../types"
+
+import { useCart } from "../../Hooks/useCart"
 
 
 function Cart() {
-  const [product ,setProduct] = useState<Product[]>([])
-  useEffect(()=>{
-    fetch("https://fakestoreapi.noksha.dev/api/walmartproducts")
-    .then((res)=>res.json())
-    .then((res)=>setProduct(res.data))
-  },[])
+  const cart = useCart()
+
   return (
     <section className="p-4">
       <h1>Cart</h1>
@@ -31,7 +27,7 @@ function Cart() {
           </div>
           <div className="w-full flex flex-col overflow-auto p-1 h-150">
             {
-              product.map((p)=>(
+              cart.cart.map((p)=>(
                 <div className="w-full flex justify-between items-center rounded-md shadow bg-white my-2 px-2">
                   <div className="w-[30%] flex text-start gap-2">
                     <img src={p.image} alt="" className="w-15 h-15 bg-cover rounded p-1"/>
@@ -58,7 +54,7 @@ function Cart() {
                     {p.price} $
                   </div>
                   <div>
-                    final price
+                    {p.price * p.count} $
                   </div>
                 </div>
               ))
@@ -71,13 +67,11 @@ function Cart() {
           </h2>
           <div className="">
             <p className="text-xl">
-              Total Procuct Count : 5
+              Total Procuct Count : {cart.totalItems}
             </p>
-            <p className="text-xl">
-              User : 5
-            </p>
+            
             <p className="text-2xl font-bold">
-              Total Price : {657} $
+              Total Price : {cart.totalPrice} $
             </p>
            
           </div>
