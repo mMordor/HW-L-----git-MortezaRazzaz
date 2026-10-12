@@ -9,5 +9,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: './'
+  base: '/HW-L-----git-MortezaRazzaz/'
 })
