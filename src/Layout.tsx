@@ -8,7 +8,8 @@ function Layout() {
   
   return (
     <>
-        <nav className="sticky top-0 left-0 h-13.75 w-full flex justify-around items-center bg-cyan-50 shadow p-3">
+      <div className="flex h-screen flex-col">
+        <nav className="sticky top-0 left-0 h-13.75 w-full shrink-0 flex justify-around items-center bg-cyan-50 shadow p-3 z-50">
           <h2>Shop</h2>
           <div className="w-62.5 flex justify-around items-center ">
             <NavLink to={"/"} className={({isActive}) => isActive ? "flex items-center gap-1 underline" : "flex items-center gap-1" }>
@@ -26,8 +27,11 @@ function Layout() {
             </NavLink>
           </div>
         </nav>
-        <Outlet/>
+        <div className="flex-1 overflow-y-auto">
+          <Outlet/>
+        </div>
         <ScrollRestoration/>
+      </div>
     </>
   )
 }

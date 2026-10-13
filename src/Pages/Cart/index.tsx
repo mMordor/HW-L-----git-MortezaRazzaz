@@ -74,7 +74,7 @@ function Cart() {
             }
           </div>
         </div>
-        <div className="md:w-[39%] h-100 bg-white rounded-md shadow-2xl flex flex-col justify-center items-center-safe">
+        <div className="md:w-[39%] h-50 md:h-100 bg-white rounded-md shadow-2xl flex flex-col justify-center items-center-safe">
           <h2>
             Info's
           </h2>

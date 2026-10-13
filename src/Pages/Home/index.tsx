@@ -81,28 +81,30 @@ function Home() {
   }else{
     return (
         <>
-          <div className=' w-full h-12.5 flex justify-around items-center px-3 mt-5'>
-            <SearchComponent onSearchChange={(query: string) => setSearchQuery(query)}/>
-            <PriceFilterDropdown  
-              priceRange={priceRange} 
-              selected_categoriy={selected_categoriy}
-              handleSliderChange={
-                (_event: Event, newValue: number | number[]) => {
+          <div className="flex h-full min-h-0 flex-col">
+            <div className=' w-full shrink-0 h-12.5 flex justify-around items-center px-3 mt-5'>
+              <SearchComponent onSearchChange={(query: string) => setSearchQuery(query)}/>
+              <PriceFilterDropdown  
+                priceRange={priceRange} 
+                selected_categoriy={selected_categoriy}
+                handleSliderChange={
+                  (_event: Event, newValue: number | number[]) => {
                     setPriceRange(newValue as number[]);
                   }
-              }
-              handleRedioChange={
-                (event: ChangeEvent<HTMLInputElement, Element>) => {
-                  setSelectedCategoriy((event.target as HTMLInputElement).value)
                 }
-              }
-            />
-          </div>
+                handleRedioChange={
+                  (event: ChangeEvent<HTMLInputElement, Element>) => {
+                    setSelectedCategoriy((event.target as HTMLInputElement).value)
+                  }
+                }
+                />
+            </div>
 
-          <div className='h-200 flex flex-wrap justify-center m-4 overflow-auto'>
-            {filteredProducts.map((p)=>(
-              <ProductCard product={p} key={p._id}/>
-            ))}
+            <div className=' flex flex-1 flex-wrap justify-center m-4 overflow-auto'>
+              {filteredProducts.map((p)=>(
+                <ProductCard product={p} key={p._id}/>
+              ))}
+            </div>
           </div>
         </>
     )
