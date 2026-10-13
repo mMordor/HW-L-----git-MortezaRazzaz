@@ -13,15 +13,15 @@ function ProductCard({product}:prop) {
   const cart = useCart()
 
   return (
-    <div className='relative min-w-62.5 w-62.5 h-112.5  rounded-md  m-1 shadow-2xl '>
+    <div className='relative min-w-50 w-50 h-100 md:min-w-62.5 md:w-62.5 md:h-112.5  rounded-md  m-1 shadow-2xl '>
  
-          <img className='w-full h-[60%] object-cover rounded-t-md '
+          <img className='w-full h-[50%] md:h-[60%] object-cover rounded-t-md '
             src={product.image} 
             alt={product.title} 
             loading="lazy"
           />
         <div className='p-1.5'>
-          <h4 className='line-clamp-2' >
+          <h4 className='truncate md:line-clamp-2' >
             {product.title}
           </h4>
           <div className=' h-14 ' >

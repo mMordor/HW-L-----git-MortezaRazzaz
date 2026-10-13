@@ -8,8 +8,8 @@ function Cart() {
   return (
     <section className="p-4">
       <h1>Cart</h1>
-      <div className="flex justify-around">
-        <div className="w-[59%]">
+      <div className="flex flex-col md:flex-row justify-around">
+        <div className="md:w-[59%]">
           <div className="w-full flex justify-between items-center px-5 mb-2">
             <p className="w-[30%] text-start">
               Product Info
@@ -25,7 +25,7 @@ function Cart() {
             </p>
             
           </div>
-          <div className="w-full flex flex-col overflow-auto p-1 h-150">
+          <div className="w-full flex flex-col overflow-auto p-1 min-h-20 bg-white rounded max-h-80 md:h-150">
             {
               cart.cart.length > 0 ? 
               cart.cart.map((p)=>(
@@ -68,13 +68,13 @@ function Cart() {
                 </div>
               ))
               :
-              <div>
+              <div className="w-full h-full flex justify-center items-center">
                 Order List Is Empty
               </div>
             }
           </div>
         </div>
-        <div className="w-[39%] h-100 bg-white rounded-md shadow-2xl flex flex-col justify-center items-center-safe">
+        <div className="md:w-[39%] h-100 bg-white rounded-md shadow-2xl flex flex-col justify-center items-center-safe">
           <h2>
             Info's
           </h2>
